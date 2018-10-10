@@ -1,19 +1,9 @@
 {
-    // the number of spaces a tab
-    "tab_size": 4,
+    // the number of spaces/tab inside an indentation
+    "indent_count": 4,
 
-    // split special symbol with a spaces
-    // , + - * / ^ % 
-    // Ex:
-    //     local a,b=function(c,d) return c+d,c-d end 
-    // --> local a, b = function(c, d) return c + d, c - d end
-    "special_symbol_split": true,
-
-    // split bracket with a spaces
-    // Ex:
-    //     foo(a,b,c) 
-    // --> foo( a,b,c )
-    "bracket_split": false,
+    // use tabs instead of spaces to indent
+    "use_tabs": false,
 
     // run `Lua Format` automatically when saved file
     "auto_format_on_save": false

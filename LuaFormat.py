@@ -49,6 +49,10 @@ class LuaFormatCommand(sublime_plugin.TextCommand):
         # replace the content after format
         print("Run Lua Format")
         self.view.replace(edit, r, lua_format(lines, get_settings()))
+        # self.view.replace(edit, r, '\n\t'.join(lines))
+
+        # translate spaces to tabs
+        self.view.run_command("unexpand_tabs")
 
         # set tab_size from lua-format-setting
         self.view.run_command("set_setting", {"setting": "tab_size", "value": get_settings().get('tab_size', 4)})
@@ -65,4 +69,5 @@ class LuaFormatCommand(sublime_plugin.TextCommand):
 class LuaFormatOnPreSave(sublime_plugin.EventListener):
     def on_pre_save(self, view):
         if get_settings().get('auto_format_on_save', False):
+            print("auto_format_on_save")
             view.run_command("lua_format")
